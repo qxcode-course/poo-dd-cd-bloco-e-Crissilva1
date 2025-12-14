@@ -12,13 +12,19 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2025-12-12 17:32:47'
+  cache_timestamp: '2025-12-14 16:06:22'
   filters:
   - herança
 expanded:
 - poo@campanha-principal
 - poo@bloco_f-herança-i
-tasks: {}
+tasks:
+  poo@zoo: '{rate:100, human:sim_amigos, iagen:nao, guide:sim_videoaula, other:anotacoes,
+    alone:10, study:65}'
+  poo@pagamento: '{rate:100, human:sim_professor, iagen:nao, guide:sim_videoaula,
+    other:sim_anotacoes, alone:10, study:120}'
+  poo@estacionamento: '{rate:100, human:sim_amigos, iagen:sim, guide:sim_video_aula,
+    other:anotacoes, alone:9, study:485}'
 flags:
   quests: 0
   tracks: 0
@@ -26,4 +32,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: poo@estacionamento
+selected: poo@zoo

@@ -17,7 +17,7 @@ class Pagamento(ABC):
     def processar(self):
         pass
     
-class CartaoCredito(Pagamento): #acoplamento forte
+class CartaoCredito(Pagamento): 
     def __init__(self, num: int, nome: str, limite: float, valor: float, descricao: str):
         super().__init__(valor, descricao)
         self.num = num
@@ -32,9 +32,11 @@ class CartaoCredito(Pagamento): #acoplamento forte
 
     def processar(self):
         if self.valor > self.limite:
-            print("pagamento recusado por limite insuficiente")
+            print(f"Erro: limite insuficiente no cartao {self.num}")
             return
         self.limite -= self.valor
+        
+    
 
 
 def processar_pagamentos(pagamentos: list[Pagamento]):
@@ -45,15 +47,21 @@ def processar_pagamentos(pagamentos: list[Pagamento]):
         if isinstance(pag, CartaoCredito):
             print(pag.get_limite())
 
-class pix(Pagamento):
+class Pix(Pagamento):
     def __init__(self, chave:int, banco:str, valor:int, descricao:str):
         super().__init__(valor, descricao)
         self.chave:int=chave
         self.banco:str=banco
 
     def processar(self):
-        if self.valor == 0 or 
-
+       if self.valor <= 0:
+          print("Erro: valor invalido")
+          
+          return 
+       
+       print(f"Pix enviado via {self.banco} usando chave {self.chave}")
+       return
+    
 
 class Boleto(Pagamento):
     def __init__(self, codigo_barra:int, vencimento:int, valor:int, descricao:str):
@@ -62,3 +70,45 @@ class Boleto(Pagamento):
         self.vencimento:int=vencimento
 
 
+    def processar(self):
+         print ("Boleto gerado. Aguardando pagamento... ")
+         return
+    
+def processar_pagamento(pagamento:Pagamento):
+    pagamento.validar_valor()
+    print(pagamento.resumo())
+    pagamento.processar()
+    
+
+def main():
+    pagamentos:list[Pagamento]=[
+        Pix(chave=123, banco="banco B", valor=200, descricao="compra"),
+
+        CartaoCredito(
+            num=123,
+            nome="Carla",
+            limite=630,
+            valor=100,
+            descricao="compra 2"
+        ),
+
+        Boleto(
+            codigo_barra=345,
+            vencimento=15,
+            valor=400,
+            descricao="compra 3"
+
+        ),
+
+        CartaoCredito(
+            num=135,
+            nome="Jose",
+            limite=800,
+            valor=200,
+            descricao="compra 4"
+         )
+    ]
+
+    for p in pagamentos:
+        processar_pagamento(p)
+main()

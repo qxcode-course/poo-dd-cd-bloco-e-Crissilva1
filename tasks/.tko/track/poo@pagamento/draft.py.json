@@ -1,0 +1,59 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-13_18-45-43",
+            "content": "@@ -500,16 +500,34 @@\n mento): \n+#acoplamento forte\n %0A    def\n@@ -1540,177 +1540,17 @@\n lor \n-%3C=0:%0A            print (%22valor invalido e reprovado%22)%0A            return %0A%0A        print(f%22valor aprovado do banco %7Bself.banco%7D e chave%7Bself.chave%7D%22)%0A        return%0A    \n+== 0 or %0A\n %0A%0Acl\n",
+            "lines": "64"
+        },
+        {
+            "label": "2025-12-14_15-13-37",
+            "content": "@@ -1281,17 +1281,17 @@\n %0A%0Aclass \n-P\n+p\n ix(Pagam\n@@ -1499,24 +1499,25 @@\n lf):%0A       \n+ \n if self.valo\n@@ -1512,33 +1512,32 @@\n if self.valor %3C=\n- \n 0:%0A          pri\n@@ -1533,21 +1533,24 @@\n         \n+ \n+ \n print\n+ \n (%22valor \n@@ -1580,23 +1580,16 @@\n     \n- \n-     %0A\n         \n   re\n@@ -1588,18 +1588,16 @@\n     \n-  \n return %0A\n     \n@@ -1596,16 +1596,10 @@\n rn %0A\n-       \n %0A\n+ \n     \n@@ -1668,16 +1668,17 @@\n have%7D%22)%0A\n+ \n        r\n@@ -1928,892 +1928,4 @@\n o%0A%0A%0A\n-    def processar(self):%0A         print (%22Boleto gerado. Aguardando pagamento... %22)%0A         return%0A    %0Adef processar_pagamento(pagamento:Pagamento):%0A    pagamento.validar_valor()%0A    pagamento.resumo()%0A    pagamento.processar()%0A    %0A%0Adef main():%0A    pagamentos:list%5BPagamento%5D=%5B%0A        Pix(chave=123, banco=%22banco B%22, valor=200, descricao=compra),%0A%0A        CartaoCredito(%0A            num=123,%0A            nome=%22Carla%22,%0A            limite=630,%0A            valor=100,%0A            descricao=%22compra 2%22%0A        ),%0A%0A        Boleto(%0A            codigo_barra=345,%0A            vencimento=15,%0A            valor=400,%0A            descricao=%22compra 3%22%0A%0A        ),%0A%0A        CartaoCredito(%0A            num=135%0A            nome=%22Jose%22,%0A            limite=800,%0A            valor=200.%0A            descricao=%22compra 4%22%0A         )%0A    %5D%0A    %0A    for p in pagamentos:%0A        processar_pagamento(p)%0Amain()\n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-12-14_16-05-35",
+            "content": "@@ -2633,17 +2633,16 @@\n  num=135\n-,\n %0A       \n@@ -2756,16 +2756,20 @@\n )%0A    %5D%0A\n+    \n %0A    for\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-05-44",
+            "content": "@@ -2705,17 +2705,17 @@\n alor=200\n-,\n+.\n %0A       \n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-06-45",
+            "content": "@@ -2281,16 +2281,14 @@\n cao=\n-%22\n compra\n-%22\n ),%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-07-16",
+            "content": "@@ -2120,22 +2120,16 @@\n r()%0A    \n-print(\n pagament\n@@ -2134,25 +2134,24 @@\n nto.resumo()\n-)\n %0A    pagamen\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-10-29",
+            "content": "@@ -1544,14 +1544,8 @@\n nt(%22\n-Erro: \n valo\n@@ -1550,24 +1550,36 @@\n lor invalido\n+ e reprovado\n %22)%0A         \n@@ -1625,23 +1625,31 @@\n t(f%22\n-Pix enviado via\n+valor aprovado do banco\n  %7Bse\n@@ -1662,21 +1662,15 @@\n co%7D \n-usando\n+e\n  chave\n- \n %7Bsel\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-21-17",
+            "content": "@@ -936,56 +936,51 @@\n int(\n-f%22Erro: limite insuficiente no cartao %7Bself.num%7D\n+%22pagamento recusado por limite insuficiente\n %22)%0A \n@@ -1035,136 +1035,8 @@\n lor%0A\n-        print(%0A            f%22Pagamento aprovado no cartao %7Bself.nome%7D. %22%0A            f%22limite rstante: %7Bself.limite%7D%22%0A        )%0A\n %0A%0Ade\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-12-14_16-24-19",
+            "content": "@@ -1131,17 +1131,16 @@\n limite r\n-e\n stante: \n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-12-14_16-24-30",
+            "content": "@@ -1044,21 +1044,136 @@\n         \n-%0A    \n+print(%0A            f%22Pagamento aprovado no cartao %7Bself.nome%7D. %22%0A            f%22limite restante: %7Bself.limite%7D%22%0A        )\n %0A%0A%0Adef p\n",
+            "lines": "116"
+        },
+        {
+            "label": "2025-12-14_16-26-19",
+            "content": "\nfrom abc import ABC, abstractmethod\n\nclass Pagamento(ABC):\n    def __init__(self, valor: float, descricao: str):\n        self.valor: float = valor\n        self.descricao = descricao\n    \n    def resumo(self) -> str:\n        return f\"Pagamento de R$ {self.valor}: {self.descricao}\"\n    \n    def validar_valor(self) -> None:\n        if self.valor <= 0:\n            raise ValueError(\"falhou: valor invalido\")\n    \n    @abstractmethod\n    def processar(self):\n        pass\n    \nclass CartaoCredito(Pagamento): \n    def __init__(self, num: int, nome: str, limite: float, valor: float, descricao: str):\n        super().__init__(valor, descricao)\n        self.num = num\n        self.nome = nome\n        self.limite: float = limite\n\n    def resumo(self):\n        return \"Cartao de Credito: \" + super().resumo()\n\n    def get_limite(self):\n        return self.limite\n\n    def processar(self):\n        if self.valor > self.limite:\n            print(f\"Erro: limite insuficiente no cartao {self.num}\")\n            return\n        self.limite -= self.valor\n        \n    \n\n\ndef processar_pagamentos(pagamentos: list[Pagamento]):\n    for pag in pagamentos:\n        pag.validar_valor()\n        print(pag.resumo())\n        pag.processar()\n        if isinstance(pag, CartaoCredito):\n            print(pag.get_limite())\n\nclass Pix(Pagamento):\n    def __init__(self, chave:int, banco:str, valor:int, descricao:str):\n        super().__init__(valor, descricao)\n        self.chave:int=chave\n        self.banco:str=banco\n\n    def processar(self):\n       if self.valor <= 0:\n          print(\"Erro: valor invalido\")\n          \n          return \n       \n       print(f\"Pix enviado via {self.banco} usando chave {self.chave}\")\n       return\n    \n\nclass Boleto(Pagamento):\n    def __init__(self, codigo_barra:int, vencimento:int, valor:int, descricao:str):\n        super().__init__(valor,descricao)\n        self.codigo_barra:int=codigo_barra\n        self.vencimento:int=vencimento\n\n\n    def processar(self):\n         print (\"Boleto gerado. Aguardando pagamento... \")\n         return\n    \ndef processar_pagamento(pagamento:Pagamento):\n    pagamento.validar_valor()\n    print(pagamento.resumo())\n    pagamento.processar()\n    \n\ndef main():\n    pagamentos:list[Pagamento]=[\n        Pix(chave=123, banco=\"banco B\", valor=200, descricao=\"compra\"),\n\n        CartaoCredito(\n            num=123,\n            nome=\"Carla\",\n            limite=630,\n            valor=100,\n            descricao=\"compra 2\"\n        ),\n\n        Boleto(\n            codigo_barra=345,\n            vencimento=15,\n            valor=400,\n            descricao=\"compra 3\"\n\n        ),\n\n        CartaoCredito(\n            num=135,\n            nome=\"Jose\",\n            limite=800,\n            valor=200,\n            descricao=\"compra 4\"\n         )\n    ]\n\n    for p in pagamentos:\n        processar_pagamento(p)\nmain()",
+            "lines": "114"
+        }
+    ]
+}
